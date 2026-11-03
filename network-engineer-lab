@@ -1,0 +1,19 @@
+# 🛡️ SecOps SysAdmin Incident Response Playbook
+
+## Overview
+This lab simulates real-world incident response procedures conducted on a hybrid virtual environment. It documents the identification, containment, and eradication of unauthorized access and privilege escalation attempts.
+
+---
+
+## Incident 1: Unauthorized SSH Brute-Force & Persistence
+
+### 1. Incident Detection & Triage
+* **Detection Source:** Auth log auditing on the Linux server (`/var/log/auth.log`).
+* **Symptom:** High volume of failed SSH login attempts followed by a successful authentication from an unrecognized external IP address (`192.0.2.45`).
+* **Evidence (Log Snippet):**
+  ```text
+  Nov 3 03:14:22 server sshd[4012]: Failed password for root from 192.0.2.45 port 54122 ssh2
+  Nov 3 03:14:24 server sshd[4012]: Failed password for root from 192.0.2.45 port 54122 ssh2
+  Nov 3 03:14:29 server sshd[4015]: Accepted password for admin from 192.0.2.45 port 54188 ssh2
+  
+  
